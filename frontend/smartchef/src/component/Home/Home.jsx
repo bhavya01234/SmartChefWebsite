@@ -72,7 +72,7 @@ const HomePage = () => {
             <div id="main">
                 <div id="page1">
                     <h1>Smart</h1>
-                    <h1>Kitchen</h1>
+                    <h1>Chef</h1>
                     <div id="video-container">
                         <div id="play">PLAY</div>
                         {/* <video autoplay loop muted src="./assets/video.mp4"></video> */}
