@@ -36,15 +36,42 @@
 
 
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from './component/Home/Home.jsx';
+import Login from './component/Home/Login.jsx';
+import Signup from './component/Home/Signup.jsx';
+import UploadImage from './component/Home/UploadImage';
 
-const App = () => {
+
+function App() {
   return (
-    <div>
-      <HomePage />
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/uploadImage" element={<UploadImage />} />
+          {/* <Route path="/signup" element={<Signup />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/room" element={<Room />} />
+          <Route path="/joinroom" element={<JoinRoom />} />
+          <Route path="/chatroom" element={<Chatroom />} />
+          <Route path="/bot" element={<Bot />} /> */}
+        </Routes>
+      </Router>
     </div>
   );
-};
+}
+
+
+// const App = () => {
+//   return (
+//     <div>
+//       <HomePage />
+//     </div>
+//   );
+// };
 
 export default App;
 

@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { useNavigate, Link } from "react-router-dom"
+// import LoginPage from './login';
 import '../Home/styles.css';
 import videoSrc from '../Home/video.mp4';
 import 'remixicon/fonts/remixicon.css';
@@ -58,9 +60,14 @@ const HomePage = () => {
 
                 </div>
                 <div id="nav-part2">
+
                     <div id="links">
-                        <a href="#">Login</a>
-                        <a href="#">SignUp</a>
+                        {/* <Link to="/login">Login</Link>
+                        <Link to="#">SignUp</Link>
+                        <Link to="#">About Us</Link> */}
+                        {/* <a href="#">Login</a> */}
+                        <Link to="/login" className="text-[--dark] underline">Login</Link>
+                        <Link to="/signup" className="text-[--dark] underline">SignUp</Link>
                         <a href="#">About Us</a>
                     </div>
                     <div id="icons">
@@ -127,158 +134,18 @@ const HomePage = () => {
                         <img src="https://img.freepik.com/premium-photo/creative-cuisine-cooking-pot-fire-set-ingredients-cream-mushrooms-soup_489646-20255.jpg?w=826"
                             alt="" />
 
+
+
                     </div>
+                    <footer className="absolute bottom-0 w-full bg-[--dark] text-[--light] text-center py-4">
+                        <p className="text-sm">Terms and Conditions | Privacy Policy | © 2024 Smart Chef. All rights reserved.</p>
+                    </footer>
                 </div>
             </div>
             <div id="cursor"></div>
-        </div>
+
+        </div >
     );
 };
 
 export default HomePage;
-
-
-// import React, { useEffect, useRef } from "react";
-// import gsap from "gsap";
-// import ScrollTrigger from "gsap/ScrollTrigger";
-// import LocomotiveScroll from "locomotive-scroll";
-// import 'locomotive-scroll/dist/locomotive-scroll.css'; // Make sure to import Locomotive Scroll styles
-// import '../Home/styles.css';
-// // import "./App.css"; // Add your styles
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// function App() {
-//     const mainRef = useRef(null);
-//     const cursorRef = useRef(null);
-//     const playButtonRef = useRef(null);
-
-//     useEffect(() => {
-//         // Locomotive Scroll Setup
-//         const locoScroll = new LocomotiveScroll({
-//             el: mainRef.current,
-//             smooth: true,
-//         });
-
-//         locoScroll.on("scroll", ScrollTrigger.update);
-
-//         ScrollTrigger.scrollerProxy(mainRef.current, {
-//             scrollTop(value) {
-//                 return arguments.length
-//                     ? locoScroll.scrollTo(value, 0, 0)
-//                     : locoScroll.scroll.instance.scroll.y;
-//             },
-//             getBoundingClientRect() {
-//                 return {
-//                     top: 0,
-//                     left: 0,
-//                     width: window.innerWidth,
-//                     height: window.innerHeight,
-//                 };
-//             },
-//             pinType: mainRef.current.style.transform ? "transform" : "fixed",
-//         });
-
-//         ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-//         ScrollTrigger.refresh();
-
-//         // Cleanup on unmount
-//         return () => {
-//             ScrollTrigger.removeEventListener("refresh", locoScroll.update);
-//             locoScroll.destroy();
-//         };
-//     }, []);
-
-//     useEffect(() => {
-//         // GSAP Animations
-
-//         // Navbar Animation
-//         gsap.to("#nav-part1 svg", {
-//             transform: "translateY(-100%)",
-//             scrollTrigger: {
-//                 trigger: "#page1",
-//                 scroller: "#main",
-//                 start: "top 0",
-//                 end: "top -5%",
-//                 scrub: true,
-//             },
-//         });
-//         gsap.to("#nav-part2 #links", {
-//             transform: "translateY(-100%)",
-//             opacity: 0,
-//             scrollTrigger: {
-//                 trigger: "#page1",
-//                 scroller: "#main",
-//                 start: "top 0",
-//                 end: "top -5%",
-//                 scrub: true,
-//             },
-//         });
-
-//         // Loading Animations
-//         gsap.from("#page1 h1", {
-//             y: 100,
-//             opacity: 0,
-//             delay: 0.5,
-//             duration: 0.9,
-//             stagger: 0.3,
-//         });
-//         gsap.from("#page1 #video-container", {
-//             scale: 0.9,
-//             opacity: 0,
-//             delay: 1.3,
-//             duration: 0.5,
-//         });
-
-//         // Video Button Hover Animations
-//         const videoContainer = document.querySelector("#video-container");
-//         videoContainer.addEventListener("mouseenter", () => {
-//             gsap.to(playButtonRef.current, { scale: 1, opacity: 1 });
-//         });
-//         videoContainer.addEventListener("mouseleave", () => {
-//             gsap.to(playButtonRef.current, { scale: 0, opacity: 0 });
-//         });
-
-//         // Custom Cursor Animation
-//         const moveCursor = (e) => {
-//             gsap.to(cursorRef.current, {
-//                 left: e.clientX,
-//                 top: e.clientY,
-//             });
-//         };
-
-//         document.addEventListener("mousemove", moveCursor);
-
-//         // Cleanup on unmount
-//         return () => {
-//             document.removeEventListener("mousemove", moveCursor);
-//         };
-//     }, []);
-
-//     return (
-//         <div id="main" ref={mainRef}>
-//             <nav id="nav">
-//                 <div id="nav-part1">
-//                     <svg>{/* Add your SVG here */}</svg>
-//                 </div>
-//                 <div id="nav-part2">
-//                     <div id="links">{/* Add your links here */}</div>
-//                 </div>
-//             </nav>
-
-//             <section id="page1">
-//                 <h1>Page 1</h1>
-//                 <div id="video-container">
-//                     <video src="your-video.mp4"></video>
-//                     <div id="play" ref={playButtonRef}>
-//                         {/* Play Button */}
-//                     </div>
-//                 </div>
-//             </section>
-
-//             <div id="cursor" ref={cursorRef}></div>
-//         </div>
-//     );
-// }
-
-// export default App;

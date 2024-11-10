@@ -68,9 +68,53 @@ button:focus-visible {
 }
 */
 
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root{
+    --light : #FEF2E3;
+    --medium : #D2BCA1;
+    --dark : #6E6151;
+}
+
+body{
+    /* overflow: hidden; */
+}
+.text-shadow{
+    text-shadow: 2px 2px 5px black;
+}
+
+.transitions:hover{
+    transition: all;
+    transition-duration: 300;
+    transition-property: all;
+}
+
+table{
+
+    @apply border-2 border-t-[--light] border-l-[--light] 
+}
+table th{
+    @apply border-2 border-t-[--light] border-l-[--light] p-2
+}
+table td{
+    @apply border-2 border-t-[--light] border-l-[--light] p-2 
+}
+
+
+
+
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 @font-face {
     font-family: Futura;
-    /* src: url(./Futura-Bold.ttf); */
     src: url(../src/assets/Futura-Bold.ttf);
 }
 @font-face {
@@ -99,9 +143,7 @@ body {
 }
 
 #nav {
-    /* height: 100px; */
     width: 100%;
-    /* background-color: burlywood; */
     position: fixed;
     z-index: 99;
     display: flex;
@@ -122,7 +164,6 @@ body {
 }
 
 #nav-part1 {
-    /* background-color: RED; */
     height: 82px;
     overflow: hidden;
 }
@@ -165,7 +206,6 @@ body {
 
 #page1 {
     min-height: 100vh;
-    /* background-color: aqua; */
     position: relative;
     width: 100%;
     padding: 0 1vw;
@@ -222,7 +262,6 @@ body {
 #page2 .elem {
     height: 100%;
     width: 31%;
-    /* background-color: red; */
     overflow: hidden;
     position: relative;
     display: flex;
@@ -261,8 +300,6 @@ body {
 .child {
     height: 54vh;
     width: 38vw;
-    /* background-color: red; */
-    /* border: 2px solid #000; */
     position: relative;
     display: flex;
     align-items: center;
@@ -277,9 +314,7 @@ body {
 @media (max-width:600px) {
 
     #nav {
-        /* height: 100px; */
         width: 100%;
-        /* background-color: burlywood; */
         position: fixed;
         z-index: 99;
         display: flex;
@@ -301,7 +336,6 @@ body {
     }
 
     #nav-part1 {
-        /* background-color: RED; */
         height: 67px;
         overflow: hidden;
     }
@@ -329,7 +363,6 @@ body {
     }
 
     #page1 {
-        /* background-color: red; */
         min-height: 70vh;
         width: 100%;
         padding: 0 3vw;
@@ -367,13 +400,12 @@ body {
         padding: 5vw 3vw;
         flex-direction: column;
         justify-content: space-between;
-        /* background-color: red; */
     }
 
     #page2 .elem {
         height: 100vh;
         width: 100%;
-        /* background-color: red; */
+
         overflow: hidden;
         margin-bottom: 3vw;
     }
@@ -401,8 +433,6 @@ body {
     .child {
         height: 54vh;
         width: 88vw;
-        /* background-color: red; */
-        /* border: 2px solid #000; */
         position: relative;
         padding: 15vw;
         display: flex;
@@ -414,4 +444,4 @@ body {
         height: 100%;
     }
 
-}
+}  */
