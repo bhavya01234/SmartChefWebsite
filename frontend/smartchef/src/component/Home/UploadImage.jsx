@@ -1,137 +1,3 @@
-// import React, { useState } from "react";
-// import axios from "axios";
-// import './UploadImage.css';
-// import "@fortawesome/fontawesome-free/css/all.css";
-// import home from '../images/home.png';
-// import { Link } from "react-router-dom";
-
-
-// function UploadImage() {
-//   const [imagePreviews, setImagePreviews] = useState([]); // Store image preview URLs
-//   const [error, setError] = useState(""); // State for error message
-//   const maxImages = 5;
-//   const [uploadedFiles, setUploadedFiles] = useState([]);
-
-//   const uploadToCloudinary = async (files) => {
-//     const uploadedImages = [];
-
-//     for (const file of files) {
-//       const formData = new FormData();
-//       formData.append("file", file);
-//       formData.append("upload_preset", "fridge"); // Use your correct preset here
-
-//       try {
-//         const response = await axios.post(
-//           `https://api.cloudinary.com/v1_1/dlzrtaoew/image/upload`, // Use your Cloudinary URL here
-//           formData
-//         );
-//         uploadedImages.push(response.data.secure_url);
-//       } catch (error) {
-//         console.error("Error uploading to Cloudinary:", error);
-//       }
-//     }
-
-
-//   };
-//   const handleImageChange = (e) => {
-//     const files = Array.from(e.target.files);
-
-//     // Check if adding new files exceeds the max limit
-//     if (imagePreviews.length + files.length > maxImages) {
-//       setError(`You can only upload a maximum of ${maxImages} images.`);
-//       return;
-//     }
-
-//     const previewUrls = files.map((file) => URL.createObjectURL(file)); // Create local previews for UX
-//     setImagePreviews((prev) => [...prev, ...previewUrls]); // Show local previews immediately
-//     setUploadedFiles((prev) => [...prev, ...files]); // Store original files for backend upload
-//     uploadToCloudinary(files); // Upload to Cloudinary
-//     setError(""); // Clear error if images are within limit
-//   };
-
-
-// const submitImages = async () => {
-//   const token = localStorage.getItem("token");
-
-//   if (!token) {
-//     setError("You must be logged in to submit images.");
-//     return;
-//   }
-
-//   // Use FormData to send actual files if the backend expects file uploads
-//   const formData = new FormData();
-//   uploadedFiles.forEach((file, index) => formData.append(`images`, file)); // Append each file
-
-//   try {
-//     const response = await axios.post(
-//       "http://localhost:8001/users/upload-fridge-images",
-//       formData,
-//       {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//           Accept: "application/json",
-//           "Content-Type": "multipart/form-data", // Required for file uploads
-//         },
-//       }
-//     );
-
-//     console.log("Images successfully sent to backend:", response.data);
-//   } catch (error) {
-//     console.error("Error sending images to backend:", error);
-//     setError("Failed to upload images. Please try again.");
-//   }
-// };
-
-//   return (
-
-//     <div className="upload-container">
-//       <Link to="/" >
-//         <img src={home} alt="" className="home-icon" />
-//       </Link>
-//       <div className="upload-card">
-//         <h2 className="upload-title">Upload Fridge Images</h2>
-//         <p className="upload-description">
-//           Upload up to {maxImages} images of your fridge for analysis.
-//         </p>
-
-//         {error && <div className="upload-error">{error}</div>}
-
-//         <div className="file-input-container">
-//           <input
-//             type="file"
-//             accept="image/*"
-//             multiple
-//             onChange={handleImageChange}
-//             className="hidden"
-//             id="fileInput"
-//           />
-//           <label htmlFor="fileInput" className="file-input-label">
-//             <i className="file-input-icon fas fa-upload"></i>
-//             &nbsp; Click here or drag and drop images to upload
-//           </label>
-//         </div>
-
-//         <div className="image-preview-grid">
-//           {imagePreviews.map((imgSrc, index) => (
-//             <div key={index} className="image-preview">
-//               <img src={imgSrc} alt={`Preview ${index + 1}`} />
-//             </div>
-//           ))}
-//         </div>
-
-//         <button onClick={submitImages} className="submit-button">
-//           Submit Images
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default UploadImage;
-
-
-////////////////// break
-
 
 
 import React, { useState } from "react";
@@ -144,7 +10,7 @@ import { Link } from "react-router-dom";
 function UploadImage() {
   const [imagePreviews, setImagePreviews] = useState([]); // Store image preview URLs
   const [error, setError] = useState(""); // State for error message
-  const maxImages = 5;
+  const maxImages = 1;
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState(""); // State to store generated recipe
@@ -181,7 +47,7 @@ function UploadImage() {
 
     // Check if adding new files exceeds the max limit
     if (imagePreviews.length + files.length > maxImages) {
-      setError(`You can only upload a maximum of ${maxImages} images.`);
+      setError(`You can only upload a maximum of ${maxImages} image.`);
       return;
     }
 
@@ -426,7 +292,7 @@ function UploadImage() {
       <div className="upload-card">
         <h2 className="upload-title">Upload Fridge Images</h2>
         <p className="upload-description">
-          Upload up to {maxImages} images of your fridge for analysis.
+          Upload up to {maxImages} image of your fridge for analysis.
         </p>
 
         {error && <div className="upload-error">{error}</div>}
@@ -482,6 +348,27 @@ function UploadImage() {
         )}
       </div>
 
+      {/* <div className="recipe-box">
+        <h1>Generated Recipe:</h1>
+        {recipe ? (
+          <ul>
+            {typeof recipe === 'string' ? (
+              recipe.split('.').map((sentence, index) => (
+                <li key={index}>{sentence.trim()}</li> // Trim to remove any extra spaces
+              ))
+            ) : (
+              <li>{JSON.stringify(recipe)}</li> // Display the recipe as a JSON string if it's not a string
+            )}
+          </ul>
+        ) : (
+          <p>No recipe generated yet.</p>
+        )}
+      </div> */}
+
+      {/* breaking */}
+
+
+
       <div className="recipe-box">
         <h1>Generated Recipe:</h1>
         {recipe ? (
@@ -491,17 +378,6 @@ function UploadImage() {
         )}
       </div>
 
-
-
-
-      {/* <div className="recipe-box">
-        <h1>Generated Recipe:</h1>
-        {recipe ? (
-          <p>{recipe}</p> // Display the generated recipe
-        ) : (
-          <p>No recipe generated yet.</p>
-        )}
-      </div> */}
 
       {/* return ( */}
       {/* <div>
