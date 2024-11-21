@@ -27,6 +27,11 @@ body {
     background-color: #f7f7f7;
 }
 
+.bg-colorr {
+    background-color: #6d0149;
+}
+
+
 #nav {
     /* height: 100px; */
     width: 100%;
@@ -50,6 +55,7 @@ body {
     padding: 10px;
 }
 
+
 #nav-part1 {
     /* background-color: RED; */
     height: 82px;
@@ -70,10 +76,22 @@ body {
     margin: 0 20px;
 }
 
+#nav-part2 #links  button{
+    text-transform: uppercase;
+
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0 20px;
+    border: none;
+}
+
 #icons {
     padding: 10px;
     border-radius: 50px;
     background-color: #F7F7F7;
+    cursor: pointer;
 }
 
 #nav-part2 #icons i {

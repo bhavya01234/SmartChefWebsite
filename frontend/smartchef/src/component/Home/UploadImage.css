@@ -1,0 +1,192 @@
+/* 
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    background-image: url('../images/back1.jpg');
+    background-size: cover;
+    background-position: center;
+
+} */
+
+.home-icon{
+     /* position: absolute; */
+    margin-top: 0px;
+    /* margin: 20px 0px 0px 20px; */
+    padding: 20px 20px 120px 20px; 
+    /* padding-bottom: 180px; */
+    /* padding-left: 20px; */
+    
+}
+.recipe-box {
+  background-color: rgba(94, 53, 189, 0.7); /* Semi-transparent black background for the recipe */
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px;
+  color: white;
+  text-align: center; /* Center the text inside the box */
+}
+.calorie-box{
+  background-color: rgba(57, 99, 99, 0.7); /* Semi-transparent black background for the recipe */
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px;
+  color: white;
+  text-align: center; /* Center the text inside the box */
+}
+.upload-container {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    background-image: url('../images/back1.jpg');
+    background-size: cover;
+    background-position: center;
+    /* height: 100vh; */
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* padding: 20px; */
+    position: relative;
+    flex-direction: column;
+    
+}
+
+
+.upload-card {
+    width: 600px;
+    margin: 0 auto;
+    /* max-width: 500px; */
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.upload-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.upload-description {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.upload-error {
+    background: #ffe5e5;
+    color: #d9534f;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    animation: shake 0.5s ease-in-out;
+}
+.file-input-container {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.file-input-container:hover {
+    background-color: #f9f9f9;
+}
+
+.file-input-label {
+    color: #333;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.file-input-icon {
+    font-size: 3rem;
+    color: #555;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+.image-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.image-preview {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.image-preview img:hover {
+    transform: scale(1.1);
+}
+
+/* Submit button */
+.submit-button {
+    background: linear-gradient(45deg, #141414, #575b63);
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background: linear-gradient(45deg, #200101, #292f3a);
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+

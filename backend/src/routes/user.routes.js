@@ -7,6 +7,8 @@ import {
     refreshAccessToken,
     registerUser,
     updateAccountDetails,
+    updateProfile,
+    getProfile,
     // updateUserAvatar,
     // updateUserCoverImage
 } from "../controllers/user.controller.js";
@@ -60,12 +62,20 @@ router.route("/update-account").patch(verifyJWT, updateAccountDetails)
 // router.route("/c/:username").get(verifyJWT, getUserChannelProfile)
 
 // router.route("/history").get(verifyJWT, getWatchHistory)
+router.route("/update-profile").post(verifyJWT, updateProfile)
+router.route("/get-profile").get(verifyJWT, getProfile)
 
 
 
 // Route for uploading fridge images
 router.route("/upload-fridge-images")
     .post(verifyJWT, upload, uploadFridgeImages);
+// router.route("/upload-fridge-images")
+//     .post(verifyJWT, upload.array('images'), uploadFridgeImages);
+
+
+// router.route("/upload-fridge-images")
+//     .post(uploadFridgeImages);
 
 
 export default router;

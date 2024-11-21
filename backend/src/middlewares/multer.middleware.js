@@ -17,7 +17,8 @@
 import multer from 'multer';
 
 // Setup multer storage to store the file temporarily before uploading to Cloudinary
-const storage = multer.diskStorage({
+// earlier diskStorage
+const storage = multer.memoryStorage({
 
   destination: (req, file, cb) => {
     cb(null, "./public/temp")  // Temporary folder where files will be stored before Cloudinary upload

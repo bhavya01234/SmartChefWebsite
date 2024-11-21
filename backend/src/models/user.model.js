@@ -15,8 +15,8 @@ const userSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-            lowecase: true,
-            trim: true,
+            lowercase: true,
+            trim: true
         },
         fullName: {
             type: String,
@@ -25,11 +25,10 @@ const userSchema = new Schema(
             index: true
         },
         avatar: {
-            type: String, // cloudinary url
-            // required: true,
+            type: String, // Cloudinary URL
         },
         coverImage: {
-            type: String, // cloudinary url
+            type: String, // Cloudinary URL
         },
         fridgeImages: [String],
         watchHistory: [
@@ -40,18 +39,52 @@ const userSchema = new Schema(
         ],
         password: {
             type: String,
-            required: [true, 'Password is required']
+            required: true
         },
         refreshToken: {
             type: String
+        },
+        // New fields
+        age: {
+            type: Number
+        },
+        dietType: {
+            type: String, // E.g., 'veg', 'non-veg', 'vegan', 'gluten-free'
+            trim: true
+        },
+        foodAllergies: [String], // E.g., ['nuts', 'dairy']
+        healthGoal: {
+            type: String, // E.g., 'weight loss', 'muscle gain'
+            trim: true
+        },
+        medicalCondition: {
+            type: String, // E.g., 'diabetes', 'cholesterol'
+            trim: true
+        },
+        numberOfServings: {
+            type: Number
+        },
+        location: {
+            type: String,
+            trim: true
+        },
+        caloriePreference: {
+            type: String, // E.g., 'high', 'low'
+            trim: true
+        },
+        cookingTimeAvailability: {
+            type: String, // E.g., 'quick', 'moderate', 'elaborate'
+            trim: true
+        },
+        preferredCuisine: {
+            type: String, // E.g., 'Indian', 'Italian'
+            trim: true
         }
-
     },
     {
         timestamps: true
     }
-)
-
+);
 //pre hook -> hook that helps us execute a piece of code just* before an action (here -> save)
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();

@@ -12,7 +12,17 @@ app.use(cors({
     origin: process.env.CORS_ORIGIN,
     credentials: true
 }))
+// app.options('*', cors());
 
+
+// const corsOpts = {
+//     origin: 'http://localhost:5173',
+//     credentials: true,
+//     methods: ['GET', 'POST', 'HEAD', 'PUT', 'PATCH', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//     exposedHeaders: ['Content-Type']
+// };
+// app.use(cors(corsOpts));
 
 // to set limit of accepting data 
 app.use(express.json({ limit: "16kb" }))

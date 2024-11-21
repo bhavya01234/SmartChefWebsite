@@ -1,0 +1,33 @@
+.bg-color{
+    background-color: #fdccedb4;
+    background-image: url('../images/back4.jpg');
+    /* background-size: cover; */
+    background-position: center;
+    /* filter: blur(2px); */
+}
+
+.bgg{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.bg-color2{
+    
+    background-color: #6d0149b4;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.bg-color3{
+    background-color: #6d0149b4;
+    margin-right: 110px;
+}
+.text-color{
+    color: #6d0149;
+}
+.hoverr:hover{
+    color: #6d0149b4;
+    background-color: #fcace1b4;
+}
+
+.bg-cardLogin{
+    background-color:  rgba(255, 255, 255, 0.8);
+}

@@ -324,6 +324,50 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
             new ApiResponse(200, user, "account details updated")
         )
 })
+// Route: Get Profile
+const getProfile = asyncHandler(async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password -refreshToken'); // Exclude sensitive fields
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+// Route: Update Profile
+const updateProfile = asyncHandler(async (req, res) => {
+    try {
+        // const allowedUpdates = [
+        //     'avatar', 'coverImage', 'age', 'dietType', 'foodAllergies',
+        //     'healthGoal', 'medicalCondition', 'numberOfServings', 'location',
+        //     'caloriePreference', 'cookingTimeAvailability', 'preferredCuisine',
+        //     'fullName', 'email', 'username'
+        // ];
+
+        const updates = Object.keys(req.body);
+        // const isValidUpdate = updates.every((update) => allowedUpdates.includes(update));
+
+        // if (!isValidUpdate) {
+        //     return res.status(400).json({ message: 'Invalid updates' });
+        // }
+
+        const user = await User.findById(req.user.id);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        updates.forEach((update) => {
+            user[update] = req.body[update];
+        });
+
+        await user.save();
+        res.status(200).json({ message: 'Profile updated successfully', user });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
 // const updateUserAvatar = asyncHandler(async (req, res) => {
 //     //file* not files* here since earlier we required array of files - avatar, coverimg
@@ -408,6 +452,8 @@ export {
     changeCurrentPassword,
     getCurrentUser,
     updateAccountDetails,
+    getProfile,
+    updateProfile,
     // updateUserAvatar,
     // updateUserCoverImage,
 }

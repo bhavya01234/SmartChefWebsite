@@ -1,18 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from "react-router-dom"
-// import LoginPage from './login';
 import '../Home/styles.css';
 import videoSrc from '../Home/video.mp4';
 import 'remixicon/fonts/remixicon.css';
+import { toast } from 'react-toastify';
 
 const HomePage = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     useEffect(() => {
-        // Locomotive animation code here
-        // Navbar animation code here
-        // Loading animation code here
-        // Video container animation code here
-        // Cursor animation code here
+        const userStatus = localStorage.getItem('token');
+        // console.log(localStorage.getItem('token'));
+        if (userStatus) {
+            setIsLoggedIn(true);
+        }
+        
     }, []);
+
+    const handleLogout = () => {
+        // Remove the token from local storage
+        localStorage.removeItem("token");
+        localStorage.removeItem("userid");
+        setIsLoggedIn(false);
+      
+        // Provide feedback to the user
+        toast.success("Logged out successfully!");
+      
+    
+      };
+      
 
     return (
 
@@ -62,17 +77,21 @@ const HomePage = () => {
                 <div id="nav-part2">
 
                     <div id="links">
-                        {/* <Link to="/login">Login</Link>
-                        <Link to="#">SignUp</Link>
-                        <Link to="#">About Us</Link> */}
-                        {/* <a href="#">Login</a> */}
-                        <Link to="/login" className="text-[--dark] underline">Login</Link>
-                        <Link to="/signup" className="text-[--dark] underline">SignUp</Link>
-                        <a href="#">About Us</a>
+                        
+                        {/* <Link to="/login" className="text-[--dark] underline">Login</Link> */}
+                        {/* <Link to="/signup" className="text-[--dark] underline">SignUp</Link> */}
+                        <Link to="/about" className="text-[--dark] underline">About Us</Link>
+                        {isLoggedIn ? <Link to="/feedback" className="text-[--dark] underline">Feedback</Link> : ""}
+                        {isLoggedIn ? (
+                            <button className="text-[--dark] underline" onClick={handleLogout}>Logout</button>
+                        ) : (
+                            <Link to="/login" className="text-[--dark] underline">Login</Link>
+                        )}
                     </div>
                     <div id="icons">
-                        <i class="ri-menu-fill"></i>
-                        <i class="ri-restaurant-2-line"></i>
+                        {isLoggedIn ? (<Link to="/profile" className="text-[--dark] underline"><i className="fa-solid fa-user"></i></Link>) : 
+                        ""}
+                        <Link to="/randomrecipes" className="text-[--dark] underline"><i className="ri-restaurant-2-line"></i></Link>
                     </div>
                 </div>
             </div>
@@ -88,26 +107,26 @@ const HomePage = () => {
                 </div>
                 <div id="page2">
                     {/* Page 2 content here */}
-                    <div id="elem1" class="elem">
+                    <div id="elem1" className="elem">
                         <img data-scroll data-scroll-speed="1"
                             src="https://cdn.sanity.io/images/w8f1ak3c/production/ee1c2e8894a4c47c4f4ce71b8973589f8a5045b2-902x1500.png/Rectangle%203.png?rect=1,0,900,1500&w=640&h=1067&fit=min&auto=format"
                             alt="" />
-                        <div data-scroll data-scroll-speed="-2" class="dets"></div>
+                        {/* <div data-scroll data-scroll-speed="-2" className="dets"></div> */}
 
                     </div>
 
-                    <div id="elem2" class="elem">
+                    <div id="elem2" className="elem">
                         <img data-scroll data-scroll-speed="1"
                             src="https://cdn.sanity.io/images/w8f1ak3c/production/bb84b7106e978c37f5aa92c8d5781751b2e9d9f2-900x1500.png/Rectangle%202.png?w=640&h=1067&auto=format"
                             alt="" />
-                        <div data-scroll data-scroll-speed="-2" class="dets"></div>
+                        {/* <div data-scroll data-scroll-speed="-2" className="dets"></div> */}
 
                     </div>
-                    <div id="elem3" class="elem">
+                    <div id="elem3" className="elem">
                         <img data-scroll data-scroll-speed="1"
                             src="https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="" />
-                        <div data-scroll data-scroll-speed="-2" class="dets"></div>
+                        {/* <div data-scroll data-scroll-speed="-2" className="dets"></div> */}
                     </div>
 
 
@@ -116,28 +135,28 @@ const HomePage = () => {
                     {/* Page 3 content here */}
 
 
-                    <div class="child" id="child3">
+                    <div className="child" id="child3">
                         <img src="https://img.freepik.com/premium-photo/recipe-app-interface-with-images-dishes-ingredient-lists_1327465-3529.jpg?w=1060"
                             alt="" />
 
                     </div>
-                    <div class="child" id="child1">
+                    <div className="child" id="child1">
                         <img src="https://img.freepik.com/premium-photo/food-transparent-background_985276-26867.jpg?w=1060"
                             alt="" />
                     </div>
-                    <div class="child" id="child2">
+                    <div className="child" id="child2">
                         <img src="https://img.freepik.com/free-psd/food-lover-taking-photos-food_23-2150847067.jpg?t=st=1726689585~exp=1726693185~hmac=e56d49087bce503692f1bf133d1ce965a8c28981ef17a12eb19838ba7e962f92&w=826"
                             alt="" />
 
                     </div>
-                    <div class="child" id="child4">
+                    <div className="child" id="child4">
                         <img src="https://img.freepik.com/premium-photo/creative-cuisine-cooking-pot-fire-set-ingredients-cream-mushrooms-soup_489646-20255.jpg?w=826"
                             alt="" />
 
 
 
                     </div>
-                    <footer className="absolute bottom-0 w-full bg-[--dark] text-[--light] text-center py-4">
+                    <footer className="absolute bottom-0 w-full bg-colorr text-[--light] text-center py-4">
                         <p className="text-sm">Terms and Conditions | Privacy Policy | © 2024 Smart Chef. All rights reserved.</p>
                     </footer>
                 </div>

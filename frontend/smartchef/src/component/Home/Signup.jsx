@@ -1,9 +1,8 @@
 // import React, { useEffect, useState } from "react"
 // import axios from "axios"
 // import { useNavigate, Link } from "react-router-dom"
-// // import "./Signup.css"
-import groupstudy from '../images/groupstudy.png'
-import booksimage from '../images/booksimage.jpg'
+import "./Login.css"
+import food1 from '../images/food1.jpg'
 
 // function Login() {
 //     const history=useNavigate();
@@ -131,15 +130,15 @@ function Login() {
     }
 
     return (
-        <div className="bg-[--light] w-full h-screen">
-            <div className="flex w-full h-full">
-                <div className="w-1/3 h-full bg-[--medium] flex p-[32px] items-center flex-col relative">
-                    <img src={booksimage} className="w-[400px] h-[500px]" />
-                    <img src={groupstudy} className="absolute bottom-0 left-1/2 -translate-x-[50%]" />
+        <div className="bg-color w-full h-screen">
+            <div className="flex w-full h-full bgg">
+                <div className="w-1/3 h-full bg-color2 flex p-[32px] items-center flex-col relative">
+                    <img src={food1} className="w-[400px] h-[580px]" />
+                    {/* <img src={groupstudy} className="absolute bottom-0 left-1/2 -translate-x-[50%]" /> */}
                 </div>
-                <div className="w-2/3 h-full flex items-center justify-center">
-                    <div className="p-10 gap-6 bg-[#fff8f2] shadow-[--dark] shadow-lg rounded-xl flex flex-col items-center justify-center">
-                        <div className="text-[--dark] font-bold text-5xl italic">Focus Share</div>
+                <div className="w-2/3 h-full flex items-center justify-center ">
+                    <div className="p-5 gap-6  shadow-[--dark] shadow-lg rounded-xl flex flex-col items-center justify-center bg-cardLogin">
+                        <div className="text-color font-bold text-5xl italic">Smart Chef</div>
                         <div className="mb-4">
                             <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Enter Full Name</label>
                             <input value={fullName} onChange={(e) => { setFullName(e.target.value) }} type="text" id="fullName" className="mt-1 block w-72 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm" placeholder="Enter Full Name" />
@@ -157,8 +156,8 @@ function Login() {
                             <input value={password} onChange={(e) => { setPassword(e.target.value) }} type="password" id="password" className="mt-1 block w-72 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm" placeholder="Enter Password" />
                         </div>
                         <div className="flex items-center w-full justify-between">
-                            <button onClick={submit} type="submit" className="px-6 py-2 text-[--light] bg-[--dark] rounded-md hover:bg-[--medium] hover:text-[--dark]">Sign Up</button>
-                            <Link to="/" className="text-[--dark] underline">Login</Link>
+                            <button onClick={submit} type="submit" className="px-6 py-2 text-[--light] bg-color3 rounded-md hoverr">Sign Up</button>
+                            <Link to="/login" className="text-color underline">Login</Link>
                         </div>
                     </div>
                 </div>
